@@ -6,8 +6,11 @@ const productRoute = require("./routes/productsRoute");
 const usersRoute = require("./routes/usersRoute");
 const orderRoute = require("./routes/orderRoute");
 const {errorHandler} = require("./middlewares/errorMiddleware");
+var cors = require('cors');
+
 const app = express();
 app.use(express.json());//body-parser
+app.use(cors());
 dotenv.config();
 
 mongoose.connect(process.env.MONGO_URI,{useUnifiedTopology:true,useNewUrlParser:true,useFindAndModify:true});
